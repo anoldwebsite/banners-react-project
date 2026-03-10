@@ -20,3 +20,13 @@
   background-color: #fef2f2;
   color: #e80a0a;
 }
+
+.banner--single {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner--multi {
+  display: block;
+}
