@@ -1,37 +1,35 @@
+import BannerController from "./components/BannerController";
 import "./styles/banner.css";
-import Banner from "./components/Banner";
-import useBanner from "./hooks/useBanner";
-
-const bannerType = ["success", "warning", "error"];
 
 export default function App() {
-  const { visible, hide, show } = useBanner();
-
   return (
-    <>
-      {bannerType.map((item, index) => {
-        return (
-          <Banner key={index} status={item}>
-            {item}
-          </Banner>
-        );
-      })}
+    <div>
+      <BannerController
+        status="success"
+        layout="multi"
+        title="Congratulations!"
+        text="You did it!"
+      >
+        {(hide) => <button onClick={hide}>Dismiss</button>}
+      </BannerController>
 
-      {visible && (
-        <Banner status="success" layout="single">
-          <span>Success</span>
-          <button onClick={hide}>Dismiss</button>
-        </Banner>
-      )}
+      <BannerController
+        status="warning"
+        layout="single"
+        title="Attention"
+        text="Be careful!"
+      >
+        {(hide) => <button onClick={hide}>Dismiss</button>}
+      </BannerController>
 
-      <Banner
+      <BannerController
         status="error"
         layout="multi"
-        title="Error"
+        title="There is a problem!"
         text="Something went wrong!"
       >
-        <button>Retry</button>
-      </Banner>
-    </>
+        {(hide) => <button onClick={hide}>Dismiss</button>}
+      </BannerController>
+    </div>
   );
 }
