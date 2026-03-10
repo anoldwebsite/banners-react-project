@@ -5,7 +5,7 @@ import useBanner from "./hooks/useBanner";
 const bannerType = ["success", "warning", "error"];
 
 export default function App() {
-  const { visible, hide } = useBanner();
+  const { visible, hide, show } = useBanner();
 
   return (
     <>
@@ -17,17 +17,21 @@ export default function App() {
         );
       })}
 
-      <Banner status="success" layout="single">
-        <span>Success</span>
-        <button>Dismiss</button>
-      </Banner>
-
       {visible && (
-        <Banner status="error" layout="multi">
-          <h3>Error</h3>
-          <p>Something went worng. Please try again later.</p>
+        <Banner status="success" layout="single">
+          <span>Success</span>
+          <button onClick={hide}>Dismiss</button>
         </Banner>
       )}
+
+      <Banner
+        status="error"
+        layout="multi"
+        title="Error"
+        text="Something went wrong!"
+      >
+        <button>Retry</button>
+      </Banner>
     </>
   );
 }

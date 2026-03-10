@@ -30,3 +30,13 @@
 .banner--multi {
   display: block;
 }
+
+.banner--title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.banner--text {
+  margin: 0.25rem 0 0;
+}
