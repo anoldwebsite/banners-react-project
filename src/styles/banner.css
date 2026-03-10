@@ -1,0 +1,22 @@
+.banner {
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 10px;
+}
+
+.banner--success {
+  background-color: #ecfdf5;
+  color: #065f46;
+}
+
+.banner--warning {
+  background-color: #fffbeb;
+  color: #dc834c;
+}
+
+.banner--error {
+  background-color: #fef2f2;
+  color: #e80a0a;
+}
