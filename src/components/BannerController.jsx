@@ -8,8 +8,22 @@ export default function BannerController({
   title,
   text,
   children,
+  autoDismiss = false,
+  autoDismissDelay = 3000, // default 3 seconds
 }) {
   const { visible, show, hide } = useBanner(true);
+
+  // Auto-dismiss logic
+  useEffect(() => {
+    if (!autoDismiss || !visible) return;
+    // If autoDismiss is true, the banner hides itself after autoDismissDelay milliseconds.
+    const timer = setTimeout(() => {
+      hide();
+    }, autoDismissDelay);
+    // If the banner becomes invisible, the timer stops.
+    // Cleanup prevents memory leaks.
+    return () => clearTimeout(timer);
+  }, [autoDismiss, autoDismissDelay, visible, hide]);
 
   return (
     <div className="banner-controller">
@@ -84,4 +98,13 @@ export default function BannerController({
     It knows how to show/hide a banner.
 
     This separation is not only intentional — it’s professional.
+*/
+
+/*
+    Render Props Pattern
+      children(hide) is a textbook example
+
+      Shows how to pass behavior from parent to child
+
+      Demonstrates inversion of control
 */

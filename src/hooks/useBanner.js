@@ -8,3 +8,11 @@ export default function useBanner(initialVisible = true) {
 
   return { visible, show, hide, toggle }; // returning state and all methods.
 }
+/*
+    Custom Hook (useBanner)
+      Encapsulates state (i.e., visible)
+
+      Exposes a clean API (show, hide, toggle)
+
+      Reusable across components
+*/
