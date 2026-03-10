@@ -1,9 +1,12 @@
 import "./styles/banner.css";
 import Banner from "./components/Banner";
+import useBanner from "./hooks/useBanner";
 
 const bannerType = ["success", "warning", "error"];
 
 export default function App() {
+  const { visible, hide } = useBanner();
+
   return (
     <>
       {bannerType.map((item, index) => {
@@ -19,10 +22,12 @@ export default function App() {
         <button>Dismiss</button>
       </Banner>
 
-      <Banner status="error" layout="multi">
-        <h3>Error</h3>
-        <p>Something went worng. Please try again later.</p>
-      </Banner>
+      {visible && (
+        <Banner status="error" layout="multi">
+          <h3>Error</h3>
+          <p>Something went worng. Please try again later.</p>
+        </Banner>
+      )}
     </>
   );
 }
