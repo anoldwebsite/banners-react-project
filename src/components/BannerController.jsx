@@ -1,6 +1,7 @@
 import Banner from "./Banner";
 import useBanner from "../hooks/useBanner";
 import "../styles/banner-controller.css";
+import { useEffect } from "react";
 
 export default function BannerController({
   status,
